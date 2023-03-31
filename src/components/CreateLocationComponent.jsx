@@ -1,21 +1,20 @@
 import React, { useState, useEffect } from "react";
 import LocationService from "../services/LocationService";
 import { useNavigate, useParams } from "react-router-dom";
+import { Container, Row, Col } from "react-bootstrap";
 
 const CreateLocationComponent = () => {
   const { id: paramId } = useParams();
   const navigate = useNavigate();
 
-const [state, setState] = useState({
-  id: paramId || "_add",
-  astronomer: "",
-  location: "",
-  gps: "",
-  imageUrl: "",
-  description: "",
-});
-
-
+  const [state, setState] = useState({
+    id: paramId || "_add",
+    astronomer: "",
+    location: "",
+    gps: "",
+    imageUrl: "",
+    description: "",
+  });
 useEffect(() => {
   if (state.id === "_add") {
     return;
@@ -23,11 +22,11 @@ useEffect(() => {
     LocationService.getLocationById(state.id).then((res) => {
       let location = res.data;
       setState({
-        id: location.id, // Update the value of state.id
+        id: location.id,
         astronomer: location.astronomer,
         location: location.location,
-        gps: location.gps,
-        imageUrl: location.imageUrl,
+        gps: location.coordinates, // Use the correct key from the response data
+        imageUrl: location.image, // Use the correct key from the response data
         description: location.description,
       });
     });
@@ -61,8 +60,6 @@ useEffect(() => {
     }
   };
 
-
-
   const cancel = () => {
     navigate("/locations");
   };
@@ -84,84 +81,82 @@ useEffect(() => {
   };
 
   return (
-    <div>
-      <br></br>
-      <div className="container">
-        <div className="row">
-          <div className="card col-md-6 offset-md-3 offset-md-3">
-            {getTitle()}
-            <div className="card-body">
-              <form>
-                <div className="form-group">
-                  <label> Astronomer: </label>
-                  <input
-                    placeholder="Astronomer"
-                    name="astronomer"
-                    className="form-control"
-                    value={state.astronomer}
-                    onChange={handleChange}
-                  />
-                </div>
-                <div className="form-group">
-                  <label> Location: </label>
-                  <input
-                    placeholder="Location"
-                    name="location"
-                    className="form-control"
-                    value={state.location}
-                    onChange={handleChange}
-                  />
-                </div>
-                <div className="form-group">
-                  <label> GPS Coordinates: </label>
-                  <input
-                    placeholder="GPS Coordinates"
-                    name="gps"
-                    className="form-control"
-                    value={state.gps}
-                    onChange={handleChange}
-                  />
-                </div>
-                <div className="form-group">
-                  <label> Image URL: </label>
-                  <input
-                    placeholder="Image URL"
-                    name="imageUrl"
-                    className="form-control"
-                    value={state.imageUrl}
-                    onChange={handleChange}
-                  />
-                </div>
-                <div className="form-group">
-                  <label> Description: </label>
-                  <input
-                    placeholder="Description"
-                    name="description"
-                    className="form-control"
-                    value={state.description}
-                    onChange={handleChange}
-                  />
-                </div>
+<div className="row">
+  <div className="col-lg-8 col-md-10 col-sm-12 mx-auto"> {/* Adjust column classes */}
+    <div className="card" style={{ padding: '20px' }}> {/* Add padding to the card */}
+      <h3 className="text-center">Add Location</h3>
+      <div className="card-body">
+        
+                <form>
+                  <div className="form-group">
+                    <label> Astronomer: </label>
+                    <input
+                      placeholder="Astronomer"
+                      name="astronomer"
+                      className="form-control"
+                      value={state.astronomer}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label> Location: </label>
+                    <input
+                      placeholder="Location"
+                      name="location"
+                      className="form-control"
+                      value={state.location}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label> GPS Coordinates: </label>
+                    <input
+                      placeholder="GPS Coordinates"
+                      name="gps"
+                      className="form-control"
+                      value={state.gps}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label> Image URL: </label>
+                    <input
+                      placeholder="Image URL"
+                      name="imageUrl"
+                      className="form-control"
+                      value={state.imageUrl}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label> Description: </label>
+                    <input
+                      placeholder="Description"
+                      name="description"
+                      className="form-control"
+                      value={state.description}
+                      onChange={handleChange}
+                    />
+                  </div>
 
-                <button
-                  className="btn btn-success"
-                  onClick={saveOrUpdateLocation}
-                >
-                  Save
-                </button>
-                <button
-                  className="btn btn-danger"
-                  onClick={cancel}
-                  style={{ marginLeft: "10px" }}
-                >
-                  Cancel
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
+                  <button
+                    className="btn btn-success"
+                    onClick={saveOrUpdateLocation}
+                  >
+                    Save
+                  </button>
+                  <button
+                    className="btn btn-danger"
+                    onClick={cancel}
+                    style={{ marginLeft: "10px" }}
+                  >
+                    Cancel
+                  </button>
+                </form>
       </div>
     </div>
+  </div>
+</div>
   );
 };
 export default CreateLocationComponent;

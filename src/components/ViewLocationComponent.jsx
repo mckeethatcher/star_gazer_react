@@ -6,11 +6,12 @@ const ViewLocationComponent = () => {
   const { id } = useParams();
   const [location, setLocation] = useState({});
 
-  useEffect(() => {
-    LocationService.getLocationById(id).then((res) => {
-      setLocation(res.data);
-    });
-  }, [id]);
+useEffect(() => {
+  LocationService.getLocationById(id).then((res) => {
+    console.log(res.data); // Log the data to the console
+    setLocation(res.data);
+  });
+}, [id]);
 
   return (
     <div>
@@ -19,29 +20,27 @@ const ViewLocationComponent = () => {
         <h3 className="text-center"> View Location Details</h3>
         <div className="card-body">
           <div className="row">
-            <label> Astronomer: </label>
-            <div> {location.astronomer}</div>
+            <strong>Astronomer:</strong> {location.astronomer}
           </div>
           <div className="row">
-            <label> Location: </label>
-            <div> {location.location}</div>
+            <strong>Location:</strong> {location.location}
           </div>
           <div className="row">
-            <label> GPS Coordinates: </label>
-            <div> {location.gps}</div>
+            <strong>GPS Coordinates:</strong> {location.coordinates}{" "}
+            {/* Updated */}
           </div>
           <div className="row">
-            <label> Image URL: </label>
-            <div> {location.imageUrl}</div>
+            <strong>Image URL:</strong> {location.image} {/* Updated */}
           </div>
           <div className="row">
-            <label> Description: </label>
-            <div> {location.description}</div>
+            <strong>Description:</strong> {location.description}
           </div>
         </div>
       </div>
     </div>
   );
-};
+
+
+  };
 
 export default ViewLocationComponent;

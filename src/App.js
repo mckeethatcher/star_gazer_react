@@ -8,7 +8,7 @@ import ListLocationComponent from "./components/ListLocationComponent";
 import CreateLocationComponent from "./components/CreateLocationComponent";
 import ViewLocationComponent from "./components/ViewLocationComponent";
 // Import the Routes and Route components from react-router-dom
-
+import { Container, Row, Col } from "react-bootstrap";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 
@@ -23,6 +23,7 @@ function NASAInfo() {
           <Route path="/" element={<ListLocationComponent />} index />
           <Route path="/locations" element={<ListLocationComponent />} />
           <Route
+           
             path="/add-location/:id"
             element={<CreateLocationComponent />}
           />
