@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const LOCATION_API_BASE_URL = "http://localhost:8000/experiences";
+const LOCATION_API_BASE_URL = "https://stargazer-back.onrender.com/experiences";
 
 class LocationService {
   getLocations() {
