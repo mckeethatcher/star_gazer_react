@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+
+body {
+  background-color: #0d0d0d;
+  color: #fff;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+header {
+  background-color: #000;
+  padding: 20px;
+  text-align: center;
+}
+
+header img {
+  max-width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+}
+
+.CloudCover {
+  margin-top: 50px;
+}
+
+.AstronomyPicture {
+  margin-top: 50px;
+}
+
+.SatelliteImagery {
+  margin-top: 50px;
+}
+
+.SolarActivityData {
+  margin-top: 50px;
+}
+
+.ConstellationLookup {
+  margin-top: 50px;
+}
+
+h1, h2, h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 48px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 36px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 20px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.constellation-lookup {
+  background-color: #1f1f1f;
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  padding: 20px;
+}
+
+.constellation-lookup h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  animation: fadein 1s ease-in-out;
+}
+
+.constellation-lookup form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+  animation: slidein 1s ease-in-out;
+}
+
+.constellation-lookup label {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.constellation-lookup input[type="date"] {
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  border-radius: 5px;
+  border: none;
+  background-color: #2b2b2b;
+  color: #fff;
+  outline: none;
+  margin-bottom: 1rem;
+}
+
+.constellation-lookup button[type="submit"] {
+  background-color: #fff;
+  color: #000;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.constellation-lookup button[type="submit"]:hover {
+  background-color: #fff;
+}
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+input[type="date"],
+input[type="text"],
+input[type="number"] {
+  margin-left: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button[type="submit"] {
+  margin-left: 10px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+h1, h2, h3 {
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+img {
+  display: block;
+  margin: auto;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
